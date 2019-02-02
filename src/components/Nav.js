@@ -1,22 +1,63 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 
-const Nav = (props) =>
-  <NavContainer>
-    <DrawerTab/>
-    <NavDrawer>
-      <a href="#top">Top</a>
-      <a href="#applications">Applications</a>
-      <a href="#tech">TechStack</a>
-      <a href="#blog">Blog</a>
-      <a href="#contact">Contact</a>
-    </NavDrawer>
-  </NavContainer>
+// const Nav = (props) =>
+//   <NavContainer>
+//     <DrawerTab>
+//       <hr/>
+//       <hr/>
+//       <hr/>
+//     </DrawerTab>
+//     <NavDrawer>
+//       <a href="#top">Top</a>
+//       <a href="#applications">Applications</a>
+//       <a href="#tech">TechStack</a>
+//       <a href="#blog">Blog</a>
+//       <a href="#contact">Contact</a>
+//     </NavDrawer>
+//   </NavContainer>
+
+class Nav extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      showDrawer: false,
+    }
+  }
+
+  toggleDrawer = () => this.setState({ showDrawer: !this.state.showDrawer });
+
+  render() {
+    let { showDrawer } = this.state;
+    return (
+      <NavContainer>
+        <DrawerTab onMouseEnter={this.toggleDrawer} style={{ display: showDrawer ? 'none' : 'flex'}}>
+          <hr/>
+          <hr/>
+          <hr/>
+        </DrawerTab>
+        <NavDrawer onMouseLeave={this.toggleDrawer} style={{ display: showDrawer ? 'flex' : 'none'}}>
+          <a href="#top">Top</a>
+          <a href="#applications">Applications</a>
+          <a href="#tech">TechStack</a>
+          <a href="#blog">Blog</a>
+          <a href="#contact">Contact</a>
+        </NavDrawer>
+      </NavContainer>
+    )
+  }
+}
 
 const DrawerTab = styled.div`
-  border: 1px solid black;
-  height: 50px;
+  background-color: black;
+  border-radius: 0px 0px 5px 5px;
+  box-shadow: 1px 2px lightgrey;
+  height: 20px;
   width: 50px;
+  flex-direction: column;
+  & hr {
+    margin: 2px 0px;
+  }
 `;
 
 const NavDrawer = styled.div`
@@ -33,14 +74,6 @@ const NavContainer = styled.div`
   height: 50px;
   position: fixed;
   width: 100%;
-  &:hover {
-    >:nth-child(1) {
-      display: none;
-    }
-    >:nth-child(2) {
-      display: flex;
-    }
-  }
-`
+`;
 
 export default Nav;
