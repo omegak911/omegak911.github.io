@@ -10,18 +10,16 @@ import GmailIcon from '../assets/Gmail.png';
 const Contact = (props) =>
   <ContactContainer id="contact">
     <h2>Let's Connect!</h2>
-
-    {''/*
-
-      github icon
-      email icon
-      linkedin icon
-
-    */}
     <div>
-      <img src={GithubIcon} alt="github"/>
-      <img src={LinkedInIcon} alt="linkedIn"/>
-      <img src={GmailIcon} alt="gmail"/>
+      <a href="https://github.com/omegak911" target="_blank">
+        <img src={GithubIcon} alt="github"/>
+      </a>
+      <a href="mailto:xkinchanx@gmail.com">
+        <img src={GmailIcon} alt="gmail"/>
+      </a>
+      <a href="https://www.linkedin.com/in/thekinchan/">
+        <img src={LinkedInIcon} alt="linkedIn"/>
+      </a>
     </div>
 
 
