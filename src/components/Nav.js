@@ -53,6 +53,10 @@ const NavDrawer = styled.div`
     font-size: 1.5em;
     color: white;
     font-weight: 500;
+    &:hover {
+      text-shadow: 2px 2px 2px grey;
+      background-color: rgb(30,30,30);
+    }
   }
 `;
 
