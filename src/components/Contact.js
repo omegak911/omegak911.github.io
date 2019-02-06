@@ -30,6 +30,12 @@ const ContactContainer = styled.div`
   flex-direction: column;
   > div {
     display: flex;
+    width: 30%;
+    justify-content: space-between;
+    @media (max-width: 700px) {
+      flex-direction: column;
+      width: auto;
+    } 
   }
 `
 export default Contact;
