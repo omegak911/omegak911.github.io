@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import styled from 'styled-components';
-import { Github, Html5, Node, ReactLogo } from 'styled-icons/fa-brands';
+import { Github, Html5, Node, ReactLogo, Redux } from 'styled-icons/fa-brands';
 import { Css3 } from 'styled-icons/boxicons-logos';
 
 class TechStack extends Component {
@@ -49,13 +49,17 @@ class TechStack extends Component {
         </TechLeftContainer>
 
         <TechCenterContainer>
-          <Fragment>
+          <img src="https://img.icons8.com/color/48/000000/mongodb.png"/>
+
+          {/* <Fragment>
             <ReactLogo />
             <Css3 />
             <Node />
             <Github />
             <Html5 />
-          </Fragment>
+            <Redux />
+          </Fragment> */}
+
         </TechCenterContainer>
 
         <TechRightContainer>
@@ -75,6 +79,9 @@ const TechContainer = styled.div`
   display: flex;
   height: 100vh;
   width: 100%;
+  & img {
+    filter: grayscale(100%);
+  }
 `;
 
 const LeftRightStyles = `
