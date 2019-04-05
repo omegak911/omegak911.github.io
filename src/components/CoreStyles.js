@@ -16,7 +16,8 @@ const StandardComponentStyles = `
   height: 100vh;
   justify-content: center;
   min-height: 500px;
-  width: 100%;`
+  width: 100%;
+`;
 
 export {
   StandardComponentStyles,

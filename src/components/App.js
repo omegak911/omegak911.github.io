@@ -38,7 +38,7 @@ class App extends Component {
         <Nav />
         <Intro />
         <OnVisible >
-        {showApp && <Applications />}
+          {showApp && <Applications />}
         </OnVisible>
         <OnVisible >
           {showTech && <TechStack />}
