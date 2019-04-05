@@ -25,7 +25,7 @@ class Applications extends Component {
             ['Android Link', 'https://play.google.com/store/apps/details?id=com.notoriousnpm.rhymedoctor'],
             ['Android Codebase', 'https://github.com/Notorious-NPM/Rhyme-Doctor-Mobile']
           ],
-          techStack: 'React | Redux | MySQL | Socket.io | Express | Passport | Cloudinary API | Words API | Expo',
+          techStack: 'Cloudinary API | Expo | Express | MySQL | Passport | React | Redux | Socket.IO | Words API',
         },
         {
           code: 'https://github.com/aask4/redidit',
@@ -33,18 +33,18 @@ class Applications extends Component {
           image: 'https://media.licdn.com/media-proxy/ext?w=800&h=800&f=n&hash=7%2Ft8PyKhFJmmc360e9k3D7AlwGs%3D&ora=1%2CaFBCTXdkRmpGL2lvQUFBPQ%2CxAVta5g-0R6jnhodx1Ey9KGTqAGj6E5DQJHUA3L0CHH05IbfPWjucZTZeeCl9UARcH0DjQAwKr61ETPnQY6-KIO7etkkgpPndZH5agYUbhl4lWdI',
           title: 'Redidit',
           url: 'https://aask4-redidit.herokuapp.com',
-          techStack: 'React | Redux | Express | Firebase | PostgreSQL',
+          techStack: 'Express | Firebase | PostgreSQL | React | Redux',
         },
         {
           code: 'https://github.com/omegak911/TrackYoScore',
           description: 'TrackYoScore',
           image: 'https://media.licdn.com/media-proxy/ext?w=800&h=800&f=n&hash=qx92U8a%2B1Jf0HHV0LzE%2ByWOdCD8%3D&ora=1%2CaFBCTXdkRmpGL2lvQUFBPQ%2CxAVta5g-0R6jnhodx1Ey9KGTqAGj6E5DQJHUA3L0CHH05IbfPWi4KpaMfrqjo0BALnoGjQBheOi1ETfhRI69LILrKdly2MPjJsL5agYUbhl4lWdI',
           title: 'TrackYoScore',
-          techStack: 'React | Redux | PostgreSQL | Express | Passport | Cloudinary API',
+          techStack: 'Cloudinary API | Express | Passport | PostgreSQL | React | Redux',
         },
         {
           code: 'https://github.com/omegak911/omegak911.github.io/tree/portfolio',
-          description: 'Personal Portfolio',
+          description: 'Personal Portfolio v2',
           image: 'https://media.licdn.com/media-proxy/ext?w=800&h=800&f=n&hash=k9tS0%2FpGWit6YI7LG%2FsrdzsNO08%3D&ora=1%2CaFBCTXdkRmpGL2lvQUFBPQ%2CxAVta5g-0R6jnhodx1Ey9KGTqAGj6E5DQJHUA3L0CHH05IbfPWjrfs_eKLel8UAVLnhXjQAzfO61STXhE460eIjre9V2iJHjd5P5agYUbhl4lWdI',
           title: 'Portfolio',
           url: 'https://omegak911.github.io/',
@@ -52,7 +52,7 @@ class Applications extends Component {
             ['Heroku Website', 'https://personalportfolio-v2.herokuapp.com/'],
             ['Next.js Codebase', 'https://github.com/omegak911/portfolio-v2/tree/deployment']
           ],
-          techStack: 'React | HTML | CSS',
+          techStack: 'CSS | HTML | React',
         },
         {
           code: 'https://github.com/omegak911/Gotta_Vue_em_All/tree/deployment',
@@ -60,7 +60,7 @@ class Applications extends Component {
           image: 'https://media.licdn.com/media-proxy/ext?w=800&h=800&f=n&hash=w0RtPCnAA3V1E5uy7imL2ZdDTT8%3D&ora=1%2CaFBCTXdkRmpGL2lvQUFBPQ%2CxAVta5g-0R6jnhodx1Ey9KGTqAGj6E5DQJHUA3L0CHH05IbfPWjvL87afran8kBCcH8CjQBhLOq1STblRI65KonofI5x2p_tdZD5agYUbhl4lWdI',
           title: 'Gotta Vue Em All',
           url: 'https://gotta-vue-em-all.herokuapp.com/',
-          techStack: 'Vue | Nuxt | Vuex | MongoDB',
+          techStack: 'MongoDB | Nuxt | Vue | Vuex',
         },
         {
           code: 'https://github.com/omegak911/Unconventional-ABCs',
@@ -68,7 +68,7 @@ class Applications extends Component {
           image: 'https://media.licdn.com/media-proxy/ext?w=800&h=800&f=n&hash=AnN2gu9FfhsEorqPxF0Q5nSq4uQ%3D&ora=1%2CaFBCTXdkRmpGL2lvQUFBPQ%2CxAVta5g-0R6jnhodx1Ey9KGTqAGj6E5DQJHUA3L0CHH05IbfPWi9f5TbfLL390BEeHpSjQAyee21EWOwQI68Kd7uedtwgsLsLJT5agYUbhl4lWdI',
           title: 'Unconventional ABCs',
           url: 'https://unconventional-abcs.herokuapp.com/',
-          techStack: 'AngularJS | Web Speech API | HTML | CSS | Express',
+          techStack: 'AngularJS | CSS | Express | HTML | Web Speech API',
         }
       ],
       showModal: null,
