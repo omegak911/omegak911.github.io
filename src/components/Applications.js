@@ -79,13 +79,8 @@ class Applications extends Component {
     this.setState({ showModal: index})
   }
 
-  removeModal = () => {
-    this.setState({ showModal: null})
-  }
-
   render() {
     const { applications, showModal } = this.state;
-
     return (
       <AppContainer id="applications">
         <MidAppContainer>
@@ -96,7 +91,7 @@ class Applications extends Component {
                 <EachApp key={index}>
                   <InnerAppContainer
                     onMouseEnter={() => this.displayModal(index)} 
-                    onMouseLeave={this.removeModal}
+                    onMouseLeave={() => this.displayModal(null)}
                     >
                     {showModal === index && 
                       <Modal>
