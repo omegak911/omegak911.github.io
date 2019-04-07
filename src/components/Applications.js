@@ -98,13 +98,13 @@ class Applications extends Component {
                         <ModalInfo>
                           <TeckStack>{app.techStack}</TeckStack>
                           <div><h3>{app.title}</h3></div>
-                          {app.url && <div><a href={app.url} target="_blank">Website</a></div>}
-                          <div><a href={app.code} target="_blank">Codebase</a></div>
+                          {app.url && <div><a href={app.url} target="_blank" rel="noopener noreferrer">Website</a></div>}
+                          <div><a href={app.code} target="_blank" rel="noopener noreferrer">Codebase</a></div>
                           {app.special &&
                             <div>
                               <br/>
-                              <div><a href={app.special[0][1]} target="_blank">{app.special[0][0]}</a></div>
-                              <div><a href={app.special[1][1]} target="_blank">{app.special[1][0]}</a></div>
+                              <div><a href={app.special[0][1]} target="_blank" rel="noopener noreferrer">{app.special[0][0]}</a></div>
+                              <div><a href={app.special[1][1]} target="_blank" rel="noopener noreferrer">{app.special[1][0]}</a></div>
                             </div>
                           }
                         </ModalInfo>

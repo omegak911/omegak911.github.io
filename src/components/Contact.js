@@ -11,7 +11,7 @@ const Contact = (props) =>
   <ContactContainer id="contact">
     <h2>Let's Connect!</h2>
     <div>
-      <a href="https://github.com/omegak911" target="_blank">
+      <a href="https://github.com/omegak911" target="_blank" rel="noopener noreferrer">
         <img src={GithubIcon} alt="github"/>
       </a>
       <a href="mailto:xkinchanx@gmail.com">
