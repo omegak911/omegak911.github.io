@@ -18,7 +18,7 @@ import {
   redux,
   socketIO,
   webpack
-} from '../assets/iconLinks';
+} from '../../assets/iconLinks';
 
 class TechStack extends Component {
   constructor(props) {
@@ -111,9 +111,12 @@ class TechStack extends Component {
       ],
       additional: [
         'Agile Methodologies',
+        'AWS EC2/S3/RDS',
+        'AngularJS',
         'RESTful API Architecture',
         'Microservices Artchitecture',
-        'AWS EC2/S3/RDS'
+        'Passport.js',
+        'Vue',
       ]
     }
   }
@@ -132,6 +135,14 @@ class TechStack extends Component {
         </TechLeftContainer>
 
         <TechCenterWrapper>
+
+          <div>
+            <h2>TechStack</h2>
+            <div>Here lies various techs I've used over the past year.  See if you can match all the text to the right logo!  Drag and drop the text to its respective logo.</div>
+          </div>
+
+          <div><button>Solve</button><button>UnSolve</button></div>
+
           <TechCenterTopContainer>
             {techCenter.map(tech =>
               <div key={tech.text}>
@@ -142,6 +153,7 @@ class TechStack extends Component {
           </TechCenterTopContainer>
 
           <TechCenterBottomContainer>
+            Additional mentions:
             {additional.map(tech =>
               <div key={tech}>
                 {tech}
@@ -224,6 +236,7 @@ const TechCenterStylez = `
 `;
 
 const TechCenterTopContainer = styled.div`
+  margin-top: 10px;
   ${TechCenterStylez}
 `;
 

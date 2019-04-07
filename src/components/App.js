@@ -6,7 +6,7 @@ import Intro from './Intro';
 import Nav from './Nav';
 import Applications from './Applications';
 import Contact from './Contact';
-import TechStack from './TechStack';
+import TechStack from './TechStack/TechStack';
 
 class App extends Component {
   constructor(props) {
