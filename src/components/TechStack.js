@@ -3,17 +3,32 @@ import styled, { keyframes } from 'styled-components';
 import { Github, Html5, Node, ReactLogo, Redux } from 'styled-icons/fa-brands';
 import { Css3 } from 'styled-icons/boxicons-logos';
 
+import {
+  css3,
+  github, 
+  html5, 
+  javascript,
+  jest, 
+  jQuery,
+  mongoDB,
+  mySQL,
+  nodeJS,
+  postgreSQL,
+  react,
+  redux,
+  socketIO,
+  webpack
+} from '../assets/iconLinks';
+
 class TechStack extends Component {
   constructor(props) {
     super(props);
     this.state = {
       techLeft: [
-        "Agile Methodologies",
-        // "AngularJS",
         "CSS",
-        "Express",
         "Git",
         "HTML",
+        "JavaScript",
         "Jest",
         "jQuery",
         "MongoDB",
@@ -21,22 +36,90 @@ class TechStack extends Component {
         "Node.js",
       ],
       techRight: [
-        // "Passport.js",
         "PostgreSQL",
         "React",
-        // "React Native"
         "Redux",
-        "RESTful API",
         "Socket.IO",
-        "Supertest",
-        // "Vue",
         "Webpack",
+      ],
+      techCenter: [
+        {
+          image: css3,
+          correct: false,
+          text: 'CSS3'
+        },
+        {
+          image: github,
+          correct: false,
+          text: 'git'
+        },
+        {
+          image: html5,
+          correct: false,
+          text: 'HTML5'
+        },
+        {
+          image: javascript,
+          correct: false,
+          text: 'JavaScript'
+        },
+        {
+          image: jest,
+          correct: false,
+          text: 'Jest'
+        },
+        {
+          image: jQuery,
+          correct: false,
+          text: 'jQuery'
+        },
+        {
+          image: mongoDB,
+          correct: false,
+          text: 'MongoDB'
+        },
+        {
+          image: mySQL,
+          correct: false,
+          text: 'MySQL'
+        },
+        {
+          image: postgreSQL,
+          correct: false,
+          text: 'PostgreSQL'
+        },
+        {
+          image: react,
+          correct: false,
+          text: 'React'
+        },
+        {
+          image: redux,
+          correct: false,
+          text: 'Redux'
+        },
+        {
+          image: socketIO,
+          correct: false,
+          text: 'Socket.IO'
+        },
+        {
+          image: webpack,
+          correct: false,
+          text: 'Webpack'
+        },
+      ],
+      additional: [
+        'Agile Methodologies',
+        'RESTful API Architecture',
+        'Microservices Artchitecture',
+        'AWS EC2/S3/RDS'
       ]
     }
   }
 
   render(){
-    let { techLeft, techRight } = this.state;
+    let { techLeft, techRight, techCenter, additional } = this.state;
 
     return (
       <TechContainer id="tech">
@@ -48,20 +131,25 @@ class TechStack extends Component {
           )}
         </TechLeftContainer>
 
-        <TechCenterContainer>
-          <img src="https://img.icons8.com/color/48/000000/mongodb.png"/>
+        <TechCenterWrapper>
+          <TechCenterTopContainer>
+            {techCenter.map(tech =>
+              <div key={tech.text}>
+                <img src={tech.image} alt=""/>
+                <TechName>{tech.correct ? tech.text : ''}</TechName>
+              </div>
+            )}
+          </TechCenterTopContainer>
 
-          {/* <Fragment>
-            <ReactLogo />
-            <Css3 />
-            <Node />
-            <Github />
-            <Html5 />
-            <Redux />
-          </Fragment> */}
-
-        </TechCenterContainer>
-
+          <TechCenterBottomContainer>
+            {additional.map(tech =>
+              <div key={tech}>
+                {tech}
+              </div>
+            )}
+          </TechCenterBottomContainer>
+        </TechCenterWrapper>
+       
         <TechRightContainer>
           {techRight.map(tech => 
             <div key={tech}>
@@ -84,14 +172,24 @@ const fadeIn = keyframes`
 `;
 
 const TechContainer = styled.div`
-  background-color: grey;
+  background-color: rgba(238,238,238,1);
   display: flex;
+  flex-direction: row;
   height: 100vh;
   width: 100%;
   & img {
-    filter: grayscale(100%);
+    height: 80px;
+    width: 80px;
   }
   animation: ${fadeIn} 2s linear;
+`;
+
+const TechName = styled.div`
+  background: grey;
+  text-align: center;
+  border: 2px solid black;
+  height: 20px;
+  width: 80px;
 `;
 
 const LeftRightStyles = `
@@ -109,9 +207,29 @@ const TechRightContainer = styled.div`
   ${LeftRightStyles}
 `;
 
-const TechCenterContainer = styled.div`
+const TechCenterWrapper = styled.div`
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+`
+
+const TechCenterStylez = `
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
   width: 80%;
-  height: 100%;
+  > div {
+    padding: 5px;
+  }
 `;
+
+const TechCenterTopContainer = styled.div`
+  ${TechCenterStylez}
+`;
+
+const TechCenterBottomContainer = styled.div`
+  ${TechCenterStylez}
+  margin-top: auto;
+`
 
 export default TechStack;
