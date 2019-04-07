@@ -85,7 +85,7 @@ class Applications extends Component {
       <AppContainer id="applications">
         <MidAppContainer>
           <div>
-            <h2>MVP Applications</h2>
+            <h2>&nbsp; MVP Applications</h2>
             <MVPApplications>
               {applications.map((app, index) =>
                 <EachApp key={index}>
