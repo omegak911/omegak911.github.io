@@ -1,7 +1,6 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import styled, { keyframes } from 'styled-components';
-import { Github, Html5, Node, ReactLogo, Redux } from 'styled-icons/fa-brands';
-import { Css3 } from 'styled-icons/boxicons-logos';
+import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
 import {
   css3,
@@ -24,7 +23,7 @@ class TechStack extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      techLeft: [
+      techToAssign: [
         "CSS",
         "Git",
         "HTML",
@@ -34,8 +33,6 @@ class TechStack extends Component {
         "MongoDB",
         "MySQL",
         "Node.js",
-      ],
-      techRight: [
         "PostgreSQL",
         "React",
         "Redux",
@@ -84,6 +81,11 @@ class TechStack extends Component {
           text: 'MySQL'
         },
         {
+          image: nodeJS,
+          correct: false,
+          text: 'Node.js'
+        },
+        {
           image: postgreSQL,
           correct: false,
           text: 'PostgreSQL'
@@ -121,58 +123,95 @@ class TechStack extends Component {
     }
   }
 
+  onDragEnd = (result) => {
+    console.log('hey!: ', result);
+  }
+
   render(){
-    let { techLeft, techRight, techCenter, additional } = this.state;
+    let { techToAssign, techCenter, additional } = this.state;
 
     return (
-      <TechContainer id="tech">
-        <TechLeftContainer>
-          {techLeft.map(tech => 
-            <div key={tech}>
-              {tech}
+      <DragDropContext onDragEnd={() => console.log('hey')}>
+        <TechContainer id="tech">
+          <Droppable
+            droppableId="techLeft"
+          >
+            {(provided, snapshot) =>
+            <TechAvailableContainer
+              ref={provided.innerRef}
+              {...provided.droppableProps}
+              isDraggingOver={snapshot.isDraggingOver}
+            >
+              {techToAssign.map((tech, index) => 
+                <Draggable
+                  key={tech}
+                  draggableId={`${tech}.${index}`}
+                  index={index}
+                >
+                  {(provided, snapshot) =>
+                    <StyledTechItem
+                      {...provided.draggableProps}
+                      {...provided.dragHandleProps}
+                      ref={provided.innerRef}
+                      isDragging={snapshot.isDragging}
+                      draggingOver={snapshot.draggingOver}
+                      >
+                      {tech}
+                    </StyledTechItem>
+                  }
+                </Draggable>
+              )}
+            </TechAvailableContainer>
+            }
+          </Droppable>
+
+          <TechCenterWrapper>
+            
+            <div>
+              <h2>TechStack</h2>
+              <div>Here lies various techs I've used over the past year.  See if you can match all the text to the right logo!  Drag and drop the text to its respective logo.</div>
             </div>
-          )}
-        </TechLeftContainer>
 
-        <TechCenterWrapper>
+            <div><button>Solve</button><button>UnSolve</button></div>
 
-          <div>
-            <h2>TechStack</h2>
-            <div>Here lies various techs I've used over the past year.  See if you can match all the text to the right logo!  Drag and drop the text to its respective logo.</div>
-          </div>
+            <TechCenterTopContainer>
+              {techCenter.map(tech =>
+                <Droppable
+                  key={tech.text}
+                  droppableId={tech.text}
+                >
+                  {(provided, snapshot) =>
+                    <StyledTechItem 
+                      ref={provided.innerRef}
+                      {...provided.droppableProps}
+                      isDraggingOver={snapshot.isDraggingOver}
+                    >
+                      <img src={tech.image} alt=""/>
+                      <TechName>{tech.correct ? tech.text : ''}</TechName>
+                    </StyledTechItem>
+                  }
+                </Droppable>
+              )}
+            </TechCenterTopContainer>
 
-          <div><button>Solve</button><button>UnSolve</button></div>
-
-          <TechCenterTopContainer>
-            {techCenter.map(tech =>
-              <div key={tech.text}>
-                <img src={tech.image} alt=""/>
-                <TechName>{tech.correct ? tech.text : ''}</TechName>
-              </div>
-            )}
-          </TechCenterTopContainer>
-
-          <TechCenterBottomContainer>
-            Additional mentions:
-            {additional.map(tech =>
-              <div key={tech}>
-                {tech}
-              </div>
-            )}
-          </TechCenterBottomContainer>
-        </TechCenterWrapper>
-       
-        <TechRightContainer>
-          {techRight.map(tech => 
-            <div key={tech}>
-              {tech}
-            </div>
-          )}
-        </TechRightContainer>
-      </TechContainer>
+            <TechCenterBottomContainer>
+              Additional mentions:
+              {additional.map(tech =>
+                <div key={tech}>
+                  {tech}
+                </div>
+              )}
+            </TechCenterBottomContainer>
+          </TechCenterWrapper>
+        </TechContainer>
+      </DragDropContext>
     )
   }
 }
+
+const StyledTechItem = styled.div`
+
+`;
 
 const fadeIn = keyframes`
   from {
@@ -204,19 +243,15 @@ const TechName = styled.div`
   width: 80px;
 `;
 
-const LeftRightStyles = `
+const TechAvailableContainer = styled.div`
   background-color: white;
   margin: 10px;
   width: 20%;
   height: calc(100% - 20px);
-`;
-
-const TechLeftContainer = styled.div`
-  ${LeftRightStyles}
-`;
-
-const TechRightContainer = styled.div`
-  ${LeftRightStyles}
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;
 
 const TechCenterWrapper = styled.div`

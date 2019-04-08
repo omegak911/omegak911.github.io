@@ -21,8 +21,6 @@ const Contact = (props) =>
         <img src={LinkedInIcon} alt="linkedIn"/>
       </a>
     </div>
-
-
   </ContactContainer>
 
 const ContactContainer = styled.div`
