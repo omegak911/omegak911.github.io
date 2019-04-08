@@ -2,8 +2,8 @@ import React from 'react';
 import { Draggable, Droppable } from 'react-beautiful-dnd';
 import styled from 'styled-components';
 
-const TechDraggables = ({ techToAssign }) =>
-  <TechDraggablesContainer>
+const TechDraggable = ({ techDraggables }) =>
+  <TechDraggableContainer>
     <Droppable
       droppableId="techLeft"
     >
@@ -12,9 +12,8 @@ const TechDraggables = ({ techToAssign }) =>
         ref={provided.innerRef}
         {...provided.droppableProps}
         isDraggingOver={snapshot.isDraggingOver}
-        techToAssign={techToAssign}
       >
-        {techToAssign.map((tech, index) => 
+        {techDraggables.map((tech, index) => 
           <Draggable
             key={tech}
             draggableId={`${tech}.${index}`}
@@ -36,9 +35,9 @@ const TechDraggables = ({ techToAssign }) =>
       </DnDContainer>
       }
     </Droppable>
-  </TechDraggablesContainer>
+  </TechDraggableContainer>
 
-const TechDraggablesContainer = styled.div`
+const TechDraggableContainer = styled.div`
   align-items: center;
   background-color: white;
   flex-direction: column;
@@ -58,4 +57,4 @@ const StyledTechItem = styled.div`
   text-align: center;
 `;
 
-export default TechDraggables;
+export default TechDraggable;
