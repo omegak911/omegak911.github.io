@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
-import TechAvailable from './TechAvailable';
+import TechDraggables from './TechDraggables';
 
 import {
   css3,
@@ -134,9 +134,9 @@ class TechStack extends Component {
     return (
       <DragDropContext onDragEnd={() => console.log('hey')}>
         <TechContainer id="tech">
-          <TechAvailable techToAssign={techToAssign} />
-          
-          <TechCenterWrapper>
+          <TechDraggables techToAssign={techToAssign} />
+
+          <TechLogosWrapper>
             
             <div>
               <h2>TechStack</h2>
@@ -173,7 +173,7 @@ class TechStack extends Component {
                 </div>
               )}
             </TechCenterBottomContainer>
-          </TechCenterWrapper>
+          </TechLogosWrapper>
         </TechContainer>
       </DragDropContext>
     )
@@ -214,11 +214,11 @@ const TechName = styled.div`
   width: 80px;
 `;
 
-const TechCenterWrapper = styled.div`
+const TechLogosWrapper = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
-`
+`;
 
 const TechCenterStylez = `
   display: flex;
