@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
+import TechAvailable from './TechAvailable';
+
 import {
   css3,
   github, 
@@ -129,42 +131,11 @@ class TechStack extends Component {
 
   render(){
     let { techToAssign, techCenter, additional } = this.state;
-
     return (
       <DragDropContext onDragEnd={() => console.log('hey')}>
         <TechContainer id="tech">
-          <Droppable
-            droppableId="techLeft"
-          >
-            {(provided, snapshot) =>
-            <TechAvailableContainer
-              ref={provided.innerRef}
-              {...provided.droppableProps}
-              isDraggingOver={snapshot.isDraggingOver}
-            >
-              {techToAssign.map((tech, index) => 
-                <Draggable
-                  key={tech}
-                  draggableId={`${tech}.${index}`}
-                  index={index}
-                >
-                  {(provided, snapshot) =>
-                    <StyledTechItem
-                      {...provided.draggableProps}
-                      {...provided.dragHandleProps}
-                      ref={provided.innerRef}
-                      isDragging={snapshot.isDragging}
-                      draggingOver={snapshot.draggingOver}
-                      >
-                      {tech}
-                    </StyledTechItem>
-                  }
-                </Draggable>
-              )}
-            </TechAvailableContainer>
-            }
-          </Droppable>
-
+          <TechAvailable techToAssign={techToAssign} />
+          
           <TechCenterWrapper>
             
             <div>
@@ -241,17 +212,6 @@ const TechName = styled.div`
   border: 2px solid black;
   height: 20px;
   width: 80px;
-`;
-
-const TechAvailableContainer = styled.div`
-  background-color: white;
-  margin: 10px;
-  width: 20%;
-  height: calc(100% - 20px);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 `;
 
 const TechCenterWrapper = styled.div`
