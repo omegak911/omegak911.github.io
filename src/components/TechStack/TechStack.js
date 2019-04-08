@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
-import TechDraggables from './TechDraggables';
+import TechDraggable from './TechDraggable';
+import TechDroppableTop from './TechDroppableTop';
 
 import {
   css3,
@@ -25,7 +26,7 @@ class TechStack extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      techToAssign: [
+      techDraggables: [
         "CSS",
         "Git",
         "HTML",
@@ -41,7 +42,7 @@ class TechStack extends Component {
         "Socket.IO",
         "Webpack",
       ],
-      techCenter: [
+      techDroppables: [
         {
           image: css3,
           correct: false,
@@ -130,13 +131,13 @@ class TechStack extends Component {
   }
 
   render(){
-    let { techToAssign, techCenter, additional } = this.state;
+    let { techDraggables, techDroppables, additional } = this.state;
     return (
       <DragDropContext onDragEnd={() => console.log('hey')}>
         <TechContainer id="tech">
-          <TechDraggables techToAssign={techToAssign} />
+          <TechDraggable techDraggables={techDraggables} />
 
-          <TechLogosWrapper>
+          <TechDroppableWrapper>
             
             <div>
               <h2>TechStack</h2>
@@ -145,26 +146,7 @@ class TechStack extends Component {
 
             <div><button>Solve</button><button>UnSolve</button></div>
 
-            <TechCenterTopContainer>
-              {techCenter.map(tech =>
-                <Droppable
-                  key={tech.text}
-                  droppableId={tech.text}
-                >
-                  {(provided, snapshot) =>
-                    <StyledTechItem 
-                      ref={provided.innerRef}
-                      {...provided.droppableProps}
-                      isDraggingOver={snapshot.isDraggingOver}
-                    >
-                      <img src={tech.image} alt=""/>
-                      <TechName>{tech.correct ? tech.text : ''}</TechName>
-                    </StyledTechItem>
-                  }
-                </Droppable>
-              )}
-            </TechCenterTopContainer>
-
+            <TechDroppableTop techDroppables={techDroppables} />
             <TechCenterBottomContainer>
               Additional mentions:
               {additional.map(tech =>
@@ -173,7 +155,7 @@ class TechStack extends Component {
                 </div>
               )}
             </TechCenterBottomContainer>
-          </TechLogosWrapper>
+          </TechDroppableWrapper>
         </TechContainer>
       </DragDropContext>
     )
@@ -206,15 +188,7 @@ const TechContainer = styled.div`
   animation: ${fadeIn} 2s linear;
 `;
 
-const TechName = styled.div`
-  background: grey;
-  text-align: center;
-  border: 2px solid black;
-  height: 20px;
-  width: 80px;
-`;
-
-const TechLogosWrapper = styled.div`
+const TechDroppableWrapper = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -230,10 +204,7 @@ const TechCenterStylez = `
   }
 `;
 
-const TechCenterTopContainer = styled.div`
-  margin-top: 10px;
-  ${TechCenterStylez}
-`;
+
 
 const TechCenterBottomContainer = styled.div`
   ${TechCenterStylez}
