@@ -32,6 +32,7 @@ const TechDraggable = ({ techDraggables }) =>
             }
           </Draggable>
         )}
+        {provided.placeholder}
       </DnDContainer>
       }
     </Droppable>

@@ -4,10 +4,10 @@ import styled from 'styled-components';
 
 const TechDroppable = ({ techDroppables }) =>
   <TechDroppableTopContainer>
-    {techDroppables.map(tech =>
+    {techDroppables.map((tech,index) =>
       <Droppable
         key={tech.text}
-        droppableId={tech.text}
+        droppableId={`${tech.text}|${index}`}
       >
         {(provided, snapshot) =>
           <DnDContainer 
@@ -17,6 +17,7 @@ const TechDroppable = ({ techDroppables }) =>
           >
             <img src={tech.image} alt=""/>
             <TechName>{tech.correct ? tech.text : ''}</TechName>
+          {provided.placeholder}
           </DnDContainer>
         }
       </Droppable>

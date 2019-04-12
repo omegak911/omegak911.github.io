@@ -21,18 +21,32 @@ class TechStack extends Component {
         'Microservices Artchitecture',
         'Passport.js',
         'Vue',
+        //Heroku bcrypt  React Native TDD 
       ]
     }
   }
 
-  onDragEnd = (result) => {
-    console.log('hey!: ', result);
+  onDragEnd = ({ destination, source }) => {
+    if (!destination) return;
+    let { techDraggables } = this.state;
+    let techName = techDraggables[source.index];
+    let [ tech, dropIndex ] = destination.droppableId.split('|');
+    if (techName === tech) {
+    }
+  }
+
+  solve = () => {
+
+  }
+
+  unsolve = () => {
+    
   }
 
   render(){
     let { techDraggables, techDroppables, additional } = this.state;
     return (
-      <DragDropContext onDragEnd={() => console.log('hey')}>
+      <DragDropContext onDragEnd={this.onDragEnd}>
         <TechContainer id="tech">
           <TechDraggable techDraggables={techDraggables} />
 
