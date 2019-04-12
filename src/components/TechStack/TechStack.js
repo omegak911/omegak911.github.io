@@ -32,6 +32,7 @@ class TechStack extends Component {
     let techName = techDraggables[source.index];
     let [ tech, dropIndex ] = destination.droppableId.split('|');
     if (techName === tech) {
+      this.handleCorrectDecision(dropIndex, source.index);
     }
   }
 
@@ -41,6 +42,15 @@ class TechStack extends Component {
 
   unsolve = () => {
     
+  }
+
+  handleCorrectDecision = (dropIndex, dragIndex) => {
+    console.log('handling correct decision')
+    let techDraggables = [...this.state.techDraggables];
+    let techDroppables = [...this.state.techDroppables];
+    techDraggables.splice(dragIndex, 1);
+    techDroppables[dropIndex].correct = true;
+    this.setState({ techDraggables, techDroppables });
   }
 
   render(){
