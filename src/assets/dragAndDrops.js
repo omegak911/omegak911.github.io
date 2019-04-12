@@ -16,9 +16,9 @@ const {
 } = require('./iconLinks');
 
 const techDraggables = [
-  "CSS",
+  "CSS3",
   "Git",
-  "HTML",
+  "HTML5",
   "JavaScript",
   "Jest",
   "jQuery",
@@ -41,7 +41,7 @@ const techDroppables = [
   {
     image: github,
     correct: false,
-    text: 'git'
+    text: 'Git'
   },
   {
     image: html5,
