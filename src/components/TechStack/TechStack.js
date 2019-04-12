@@ -37,7 +37,11 @@ class TechStack extends Component {
   }
 
   solve = () => {
-
+    let techDroppables = [...this.state.techDroppables];
+    for (let droppable of techDroppables) {
+      droppable.correct = true;
+    }
+    this.setState({ techDraggables: [], techDroppables });
   }
 
   unsolve = () => {
@@ -45,7 +49,6 @@ class TechStack extends Component {
   }
 
   handleCorrectDecision = (dropIndex, dragIndex) => {
-    console.log('handling correct decision')
     let techDraggables = [...this.state.techDraggables];
     let techDroppables = [...this.state.techDroppables];
     techDraggables.splice(dragIndex, 1);
@@ -67,7 +70,7 @@ class TechStack extends Component {
               <div>Here lies various techs I've used over the past year.  See if you can match all the text to the right logo!  Drag and drop the text to its respective logo.</div>
             </div>
 
-            <div><button>Solve</button><button>UnSolve</button></div>
+            <div><button onClick={this.solve}>Solve</button><button>UnSolve</button></div>
 
             <TechDroppableTop techDroppables={techDroppables} />
             <TechCenterBottomContainer>
