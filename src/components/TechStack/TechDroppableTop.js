@@ -17,7 +17,7 @@ const TechDroppable = ({ techDroppables }) =>
           >
             <img src={tech.image} alt=""/>
             <TechName>{tech.correct ? tech.text : ''}</TechName>
-          {provided.placeholder}
+            {provided.placeholder}
           </DnDContainer>
         }
       </Droppable>
@@ -35,7 +35,11 @@ const TechDroppableTopContainer = styled.div`
   }
 `;
 
-const DnDContainer = styled.div``;
+const DnDContainer = styled.div`
+  background-color: ${props => props.isDraggingOver ? 'rgba(100,100,100,0.5)' : 'rgba(0,0,0,0)'};
+  height: 108px;
+  width: 84px;
+`;
 
 const TechName = styled.div`
   background: grey;
