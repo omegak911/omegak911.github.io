@@ -110,6 +110,7 @@ const TechContainer = styled.div`
   display: flex;
   flex-direction: row;
   height: 100vh;
+  min-height: 690px;
   width: 100%;
   & img {
     height: 80px;
