@@ -27,18 +27,19 @@ class TechStack extends Component {
   }
 
   componentDidMount() {
-    let copyDroppables = techDroppables.slice();
-    this.randomizeDroppables(copyDroppables);
+    let copyDroppables = [...techDroppables];
+    let copyDraggables = [...techDraggables];
+    this.randomizeDroppables(copyDroppables, copyDraggables);
   }
 
-  randomizeDroppables = (techDroppables) => {
+  randomizeDroppables = (techDroppables, techDraggables) => {
     for (let i = 0; i < techDroppables.length; i++) {
       let randomIndex = Math.floor(Math.random() * techDroppables.length);
       let temp = techDroppables[randomIndex];
       techDroppables[randomIndex] = techDroppables[i];
       techDroppables[i] = temp;
     }
-    this.setState({ techDroppables });
+    this.setState({ techDroppables, techDraggables });
   }
 
   onDragEnd = ({ destination, source }) => {
@@ -53,16 +54,18 @@ class TechStack extends Component {
 
   solve = () => {
     let techDroppables = [...this.state.techDroppables];
-    for (let droppable of techDroppables) {
-      droppable.correct = true;
+    for (let i = 0; i < techDroppables.length; i++) {
+      techDroppables[i] = {...techDroppables[i]};
+      techDroppables[i].correct = true;
     }
     this.setState({ techDraggables: [], techDroppables });
   }
 
   unSolve = () => {
-    let droppables = [...techDroppables];
-    for (let droppable of techDroppables) {
-      droppable.correct = false;
+    let droppables = [...this.state.techDroppables];
+    for (let i = 0; i < droppables.length; i++) {
+      droppables[i] = {...droppables[i]};
+      droppables[i].correct = false;
     }
     this.setState({ techDraggables, techDroppables: droppables });
   }
