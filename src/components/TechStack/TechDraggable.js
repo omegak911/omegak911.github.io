@@ -9,9 +9,8 @@ const TechDraggable = ({ techDraggables }) =>
     <Droppable
       droppableId="techLeft"
     >
-    {(provided, snapshot) => {
-      console.log('draggable droppable');
-return (      <DnDContainer 
+    {(provided, snapshot) =>
+      <DnDContainer 
         ref={provided.innerRef}
         {...provided.droppableProps}
         isDraggingOver={snapshot.isDraggingOver}
@@ -36,9 +35,8 @@ return (      <DnDContainer
           </Draggable>
         )}
         {provided.placeholder}
-      </DnDContainer>)
+      </DnDContainer>
     }
-      }
     </Droppable>
   </TechDraggableContainer>
 
