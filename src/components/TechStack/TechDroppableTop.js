@@ -2,6 +2,8 @@ import React from 'react';
 import { Droppable } from 'react-beautiful-dnd';
 import styled from 'styled-components';
 
+import TechDroppableItem from './TechDroppableTopItem';
+
 const TechDroppable = ({ techDroppables }) =>
   <TechDroppableTopContainer>
     {techDroppables.map((tech,index) =>
@@ -9,20 +11,20 @@ const TechDroppable = ({ techDroppables }) =>
         key={tech.text}
         droppableId={`${tech.text}|${index}`}
       >
-        {(provided, snapshot) =>
+        {(provided, snapshot) => 
           <DnDContainer 
             ref={provided.innerRef}
             {...provided.droppableProps}
             isDraggingOver={snapshot.isDraggingOver}
           >
-            <img src={tech.image} alt=""/>
-            <TechName>{tech.correct ? tech.text : ''}</TechName>
+            <TechDroppableItem tech={tech}/>
             {provided.placeholder}
           </DnDContainer>
         }
       </Droppable>
     )}
   </TechDroppableTopContainer>
+
 
 const TechDroppableTopContainer = styled.div`
   display: flex;
@@ -38,19 +40,10 @@ const TechDroppableTopContainer = styled.div`
 `;
 
 const DnDContainer = styled.div`
-  ${'' /* background-color: ${props => props.isDraggingOver ? 'rgba(100,100,100,0.5)' : 'rgba(0,0,0,0)'}; */}
   border: ${props => props.isDraggingOver ? '1px solid black' : '0px'};
   box-shadow: ${props => props.isDraggingOver ? '1px 1px 5px black' : '0px'};
   height: 108px;
   width: 84px;
-`;
-
-const TechName = styled.div`
-  background: grey;
-  text-align: center;
-  border: 2px solid black;
-  height: 20px;
-  width: 80px;
 `;
 
 export default TechDroppable;

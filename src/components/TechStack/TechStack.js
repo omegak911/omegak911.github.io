@@ -71,6 +71,7 @@ class TechStack extends Component {
     let techDraggables = [...this.state.techDraggables];
     let techDroppables = [...this.state.techDroppables];
     techDraggables.splice(dragIndex, 1);
+    techDroppables[dropIndex] = {...techDroppables[dropIndex]};
     techDroppables[dropIndex].correct = true;
     this.setState({ techDraggables, techDroppables });
   }
