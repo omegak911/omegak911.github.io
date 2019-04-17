@@ -7,7 +7,6 @@ class TechDroppableTopItem extends Component {
   }
 
   render() {
-    console.log('droppable droppable')
     let { tech } = this.props;
     return (
       <div>

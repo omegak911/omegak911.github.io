@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled, { keyframes } from 'styled-components';
-import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+import { DragDropContext } from 'react-beautiful-dnd';
 
 import TechDraggable from './TechDraggable';
 import TechDroppableTop from './TechDroppableTop';
@@ -110,10 +110,6 @@ class TechStack extends Component {
     )
   }
 }
-
-const StyledTechItem = styled.div`
-
-`;
 
 const fadeIn = keyframes`
   from {
