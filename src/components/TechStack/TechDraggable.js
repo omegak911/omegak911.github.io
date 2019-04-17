@@ -2,13 +2,16 @@ import React from 'react';
 import { Draggable, Droppable } from 'react-beautiful-dnd';
 import styled from 'styled-components';
 
+import TechDraggableItem from './TechDraggableItem';
+
 const TechDraggable = ({ techDraggables }) =>
   <TechDraggableContainer>
     <Droppable
       droppableId="techLeft"
     >
-    {(provided, snapshot) =>
-      <DnDContainer 
+    {(provided, snapshot) => {
+      console.log('draggable droppable');
+return (      <DnDContainer 
         ref={provided.innerRef}
         {...provided.droppableProps}
         isDraggingOver={snapshot.isDraggingOver}
@@ -27,13 +30,14 @@ const TechDraggable = ({ techDraggables }) =>
                 isDragging={snapshot.isDragging}
                 draggingOver={snapshot.draggingOver}
                 >
-                {tech}
+                <TechDraggableItem tech={tech}/>
               </StyledTechItem>
             }
           </Draggable>
         )}
         {provided.placeholder}
-      </DnDContainer>
+      </DnDContainer>)
+    }
       }
     </Droppable>
   </TechDraggableContainer>
