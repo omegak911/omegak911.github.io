@@ -12,7 +12,7 @@ class TechStack extends Component {
     super(props);
     this.state = {
       techDraggables,
-      techDroppables,
+      techDroppables: [],
       additional: [
         'Agile Methodologies',
         'AWS EC2/S3/RDS',
@@ -24,6 +24,21 @@ class TechStack extends Component {
         //Heroku bcrypt  React Native TDD 
       ]
     }
+  }
+
+  componentDidMount() {
+    let copyDroppables = techDroppables.slice();
+    this.randomizeDroppables(copyDroppables);
+  }
+
+  randomizeDroppables = (techDroppables) => {
+    for (let i = 0; i < techDroppables.length; i++) {
+      let randomIndex = Math.floor(Math.random() * techDroppables.length);
+      let temp = techDroppables[randomIndex];
+      techDroppables[randomIndex] = techDroppables[i];
+      techDroppables[i] = temp;
+    }
+    this.setState({ techDroppables });
   }
 
   onDragEnd = ({ destination, source }) => {
