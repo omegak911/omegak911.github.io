@@ -121,12 +121,14 @@ const fadeIn = keyframes`
 `;
 
 const TechContainer = styled.div`
-  background-color: rgba(238,238,238,1);
+  background-color: rgba(29,161,242,1);
   display: flex;
   flex-direction: row;
   height: 100vh;
   min-height: 690px;
-  width: 100%;
+  align-items: center;
+  margin: 10px;
+  border-radius: 3px;
   & img {
     height: 80px;
     width: 80px;
@@ -138,6 +140,9 @@ const TechDroppableWrapper = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
+  > :nth-child(1) {
+    padding: 0px 15% 10px;
+  }
 `;
 
 const TechCenterStylez = `
@@ -149,8 +154,6 @@ const TechCenterStylez = `
     padding: 5px;
   }
 `;
-
-
 
 const TechCenterBottomContainer = styled.div`
   ${TechCenterStylez}

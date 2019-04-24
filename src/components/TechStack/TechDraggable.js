@@ -46,7 +46,7 @@ const TechDraggableContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   display: flex;
-  height: calc(100% - 20px);
+  height: 70%;
   margin: 10px;
   max-width: 180px;
   width: 30%;
