@@ -21,13 +21,15 @@ class App extends Component {
     setDefaultProps({
       percent: 20,
       onChange: () => {
-        if (!this.state.showApp) {
-          this.setState({ showApp: true });
-        } else {
-          this.setState({ showTech: true });
-        }
+        this.showRestOfPortfolio();
       }
     })
+  }
+
+  showRestOfPortfolio = () => {
+    if (!this.state.showApp) {
+      this.setState({ showApp: true, showTech: true  });
+    }
   }
   
   render() {
@@ -35,7 +37,7 @@ class App extends Component {
     return (
       <div className="App">
         <GlobalStyle />
-        <Nav />
+        <Nav showRestOfPortfolio={this.showRestOfPortfolio}/>
         <Intro />
         <OnVisible >
           {showApp && <Applications />}

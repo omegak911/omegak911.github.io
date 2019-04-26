@@ -6,10 +6,17 @@ class Nav extends Component {
     super(props);
     this.state = {
       showDrawer: false,
+      hoveredTimes: 0
     }
   }
 
-  toggleDrawer = () => this.setState({ showDrawer: !this.state.showDrawer });
+  toggleDrawer = () => {
+    this.setState({ showDrawer: !this.state.showDrawer, hoveredTimes: this.state.hoveredTimes + 1 }, () => {
+      if (this.state.hoveredTimes === 1) {
+        this.props.showRestOfPortfolio();
+      }
+    });
+  }
 
   render() {
     let { showDrawer } = this.state;
