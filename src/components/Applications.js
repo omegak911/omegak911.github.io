@@ -13,7 +13,6 @@ class Applications extends Component {
           description: 'Trello clone',
           image: 'https://media.licdn.com/media-proxy/ext?w=800&h=800&f=n&hash=YZ1CcnNBRDs9n6zVSZ1T9a%2FMI50%3D&ora=1%2CaFBCTXdkRmpGL2lvQUFBPQ%2CxAVta5g-0R6jnhodx1Ey9KGTqAGj6E5DQJHUA3L0CHH05IbfPWi4LJHdfbOnp0AULH9QjQAyLbq1ETPlR46_eYnvKdojjMGzdZL5agYUbhl4lWdI',
           title: 'Trello-chan',
-          url: 'http://ec2-54-67-46-109.us-west-1.compute.amazonaws.com:4000',
           techStack: 'AWS EC2/S3/RDS | Express | Jest | Microservices | PostgreSQL | React | react-beautiful-dnd | styled-components',
         },
         {
