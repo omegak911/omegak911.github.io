@@ -12,17 +12,7 @@ class TechStack extends Component {
     super(props);
     this.state = {
       techDraggables,
-      techDroppables: [],
-      additional: [
-        'Agile Methodologies',
-        'AWS EC2/S3/RDS',
-        'AngularJS',
-        'RESTful API Architecture',
-        'Microservices Artchitecture',
-        'Passport.js',
-        'Vue',
-        //Heroku bcrypt  React Native TDD 
-      ]
+      techDroppables: []
     }
   }
 
@@ -80,7 +70,7 @@ class TechStack extends Component {
   }
 
   render(){
-    let { techDraggables, techDroppables, additional } = this.state;
+    let { techDraggables, techDroppables } = this.state;
     return (
       <DragDropContext onDragEnd={this.onDragEnd}>
         <TechContainer id="tech">
@@ -96,14 +86,6 @@ class TechStack extends Component {
             <div><button onClick={this.solve}>Solve</button><button onClick={this.unSolve}>UnSolve</button></div>
 
             <TechDroppableTop techDroppables={techDroppables} />
-            <TechCenterBottomContainer>
-              Additional mentions:
-              {additional.map(tech =>
-                <div key={tech}>
-                  {tech}
-                </div>
-              )}
-            </TechCenterBottomContainer>
           </TechDroppableWrapper>
         </TechContainer>
       </DragDropContext>

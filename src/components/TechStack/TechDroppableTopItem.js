@@ -7,15 +7,25 @@ class TechDroppableTopItem extends Component {
   }
 
   render() {
-    let { tech } = this.props;
+    let { correct, image, text } = this.props.tech;
     return (
       <div>
-        <img src={tech.image} alt=""/>
-        <TechName>{tech.correct ? tech.text : ''}</TechName>
+        <TechImage style={{
+          backgroundImage: `url(${image})`
+        }}>
+        </TechImage>
+        <TechName>{correct ? text : ''}</TechName>
       </div>
     )
   }
 }
+
+const TechImage = styled.div`
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 85px;
+  width: 85px;
+`;
 
 const TechName = styled.div`
   background: grey;
