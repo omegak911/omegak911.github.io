@@ -1,12 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import Sphere from './Sphere';
 import { StandardComponentStyles } from './CoreStyles';
 
 const Intro = (props) =>
   <IntroContainer id="top">
     <h2 className="name">Kin Chan</h2>
-    <p className="statement"><em>The software engineer you've been searching for</em></p>
+    <Sphere />
   </IntroContainer>
 
 const IntroContainer = styled.div`
