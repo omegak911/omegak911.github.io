@@ -127,19 +127,4 @@ const TechDroppableWrapper = styled.div`
   }
 `;
 
-const TechCenterStylez = `
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  width: 80%;
-  > div {
-    padding: 5px;
-  }
-`;
-
-const TechCenterBottomContainer = styled.div`
-  ${TechCenterStylez}
-  margin-top: auto;
-`
-
 export default TechStack;
