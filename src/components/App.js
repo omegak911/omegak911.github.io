@@ -4,7 +4,7 @@ import OnVisible, { setDefaultProps } from 'react-on-visible';
 import { GlobalStyle } from './CoreStyles';
 import Intro from './Intro';
 import Nav from './Nav';
-import Applications from './Applications';
+import Applications from './Applications/Applications';
 import Contact from './Contact';
 import TechStack from './TechStack/TechStack';
 
