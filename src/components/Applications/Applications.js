@@ -75,7 +75,7 @@ const AppContainer = styled.div`
 const MidAppContainer = styled.div`
   background: linear-gradient(135deg, rgba(238,238,238,1) 0%,rgba(204,204,204,1) 100%);
   border-radius: 30px;
-  box-shadow: 10px 10px 10px rgb(185, 186, 186);
+  box-shadow: 10px 10px 10px rgb(30, 30, 30);
   display: flex;
   flex-direction: column;
   justify-items: center;

@@ -42,7 +42,9 @@ const TechDraggable = ({ techDraggables }) =>
 
 const TechDraggableContainer = styled.div`
   align-items: center;
-  background-color: white;
+  background-color: #252423;
+  border: 2px solid white;
+  border-radius: 3px;
   flex-direction: column;
   justify-content: center;
   display: flex;
@@ -55,7 +57,8 @@ const TechDraggableContainer = styled.div`
 const DnDContainer = styled.div``;
 
 const StyledTechItem = styled.div`
-  border: 1px solid black;
+  background-color: grey;
+  border: 2px solid black;
   margin-top: 5px;
   padding: 3px;
   text-align: center;

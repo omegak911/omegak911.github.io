@@ -103,7 +103,6 @@ const fadeIn = keyframes`
 `;
 
 const TechContainer = styled.div`
-  background-color: rgba(29,161,242,1);
   display: flex;
   flex-direction: row;
   height: 100vh;
@@ -120,6 +119,7 @@ const TechContainer = styled.div`
 
 const TechDroppableWrapper = styled.div`
   align-items: center;
+  color: white;
   display: flex;
   flex-direction: column;
   > :nth-child(1) {

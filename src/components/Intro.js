@@ -12,7 +12,6 @@ const Intro = (props) =>
 
 const IntroContainer = styled.div`
   ${StandardComponentStyles}
-  ${'' /* background-image: url("https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-138815.jpg"); */}
   background-size: cover;
   color: white;
   font-size: 3em;
