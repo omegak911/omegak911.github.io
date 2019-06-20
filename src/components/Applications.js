@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import Coverflow from 'react-coverflow';
 
 import { StandardComponentStyles } from './CoreStyles';
 import Application from './Application';
@@ -16,18 +17,28 @@ class Applications extends Component {
   render() {
     const { applications } = this.state;
     return (
-      <AppContainer id="applications">
+      <AppContainer>
         <MidAppContainer>
           <div>
             <h2>&nbsp; MVP Applications</h2>
             <MVPApplications>
-              {applications.map((app, i) =>
-                <Application key={i} app={app}/>
-              )}
-            </MVPApplications>
-          </div>
-        </MidAppContainer>
-      </AppContainer>
+              <Coverflow
+                height={400}
+                width={1500}
+                displayQuantityOfSide={2}
+                navigation={false}
+                enableScroll={true}
+                clickable={true}
+                active={0}
+              >
+                {applications.map((app, i) =>
+                  <Application key={i} app={app}/>
+                )}
+              </Coverflow>
+          </MVPApplications>
+         </div>
+       </MidAppContainer>
+     </AppContainer>
     )
   }
 }
@@ -54,9 +65,11 @@ const MVPApplications = styled.div`
   margin-bottom: 50px;
   margin-left: auto;
   margin-right: auto;
-  overflow: scroll;
+  overflow: hidden;
   text-align: center;
   width: 80%;
+  justify-content: center;
+  align-items: center;
 `;
 
 export default Applications;

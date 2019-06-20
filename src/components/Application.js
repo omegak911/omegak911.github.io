@@ -9,19 +9,15 @@ class Application extends Component {
     }
   }
 
-  toggleModal = () => {
-    this.setState({ showModal: !this.state.showModal });
-  }
+  // toggleModal = () => {
+  //   this.setState({ showModal: !this.state.showModal });
+  // }
 
   render() {
     let { app } = this.props;
     return (
-      <EachApp >
-        <InnerAppContainer
-          onMouseEnter={this.toggleModal}
-          onMouseLeave={this.toggleModal}
-          >
-          {this.state.showModal && 
+      <div>
+          {/* {this.state.showModal && 
             <Modal>
               <ModalInfo>
                 <TeckStack>{app.techStack}</TeckStack>
@@ -68,30 +64,15 @@ class Application extends Component {
                 }
               </ModalInfo>
             </Modal>
-          }
-          <img src={app.image} alt="app preview"/>
-        </InnerAppContainer>
-      </EachApp>
+          } */}
+          <StyledImg src={app.image} alt="app preview" style={{ width: '100%' }}/>
+      </div>
     )
   }
 }
 
-const EachApp = styled.div`
-  display: flex;
-  height: 100%;
-`;
-
-const InnerAppContainer = styled.div`
-  height: 90%;
+const StyledImg = styled.img`
   border: 1px solid black;
-  margin-left: 10px;
-  margin-top: auto;
-  margin-bottom: auto;
-  position: relative;
-  > img {
-    border-bottom: 2px solid black;
-    height: 100%;
-  }
 `;
 
 const Modal = styled.div`
