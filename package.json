@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "animejs": "^3.0.1",
     "react": "^16.7.0",
     "react-beautiful-dnd": "^10.1.0",
     "react-coverflow": "^0.2.20",
