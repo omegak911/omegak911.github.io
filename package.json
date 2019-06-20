@@ -5,6 +5,7 @@
   "dependencies": {
     "react": "^16.7.0",
     "react-beautiful-dnd": "^10.1.0",
+    "react-coverflow": "^0.2.20",
     "react-dom": "^16.7.0",
     "react-on-visible": "^1.6.0",
     "react-scripts": "2.1.3",
