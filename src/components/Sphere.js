@@ -17,7 +17,7 @@ class Sphere extends Component {
     const resize = () => {
       if (timeout) clearTimeout(timeout);
       anime.set(el, { scale: 1 });
-      var ratio = el.parentNode.offsetWidth / el.offsetWidth;
+      var ratio = el.parentNode.offsetWidth / el.scrollWidth;
       timeout = setTimeout(anime.set(el, { scale: ratio }), 10);
     }
     resize();
@@ -26,7 +26,7 @@ class Sphere extends Component {
 
   sphereAnimation = () => {
     var sphereEl = this.animationWrapperRef.current;
-    var spherePathEls = [...sphereEl.childNodes].filter(node => node.nodeName === 'path');
+    var spherePathEls = [...sphereEl.childNodes[0].childNodes].filter(node => node.nodeName === 'path');
     var pathLength = spherePathEls.length;
     var animations = [];
   
@@ -89,15 +89,13 @@ class Sphere extends Component {
     }
     
     init();
-  
   }
-
 
   render() {
     return (
       <StyledAnimationWrapper>
-        <StyledSphereAnimation>
-          <svg ref={this.animationWrapperRef} viewBox="0 0 440 440" stroke="rgba(80,80,80,.35)">
+        <StyledSphereAnimation ref={this.animationWrapperRef}>
+          <svg viewBox="0 0 440 440" stroke="rgba(80,80,80,.35)">
             <defs>
               <linearGradient id="sphereGradient" x1="5%" x2="5%" y1="0%" y2="15%">
                 <stop stopColor="#373734" offset="0%"/>
