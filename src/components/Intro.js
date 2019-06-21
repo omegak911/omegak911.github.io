@@ -6,7 +6,8 @@ import { StandardComponentStyles } from './CoreStyles';
 
 const Intro = (props) =>
   <IntroContainer id="top">
-    <h2 className="name">Kin Chan</h2>
+    <h2>Welcome!</h2>
+    <h3>I'm Kin Chan</h3>
     <Sphere />
   </IntroContainer>
 
@@ -14,11 +15,18 @@ const IntroContainer = styled.div`
   ${StandardComponentStyles}
   background-size: cover;
   color: white;
-  font-size: 3em;
+  font-size: 2em;
   flex-direction: column;
+  position: relative;
   text-shadow: 5px 5px 10px black;
   > h2 {
     margin: 0px;
+    position: absolute;
+    z-index: 10;
+  }
+  > h3 {
+    position: absolute;
+    z-index: 10;
   }
   > p {
     @media (max-width: 700px) {
