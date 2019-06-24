@@ -18,7 +18,9 @@ class Sphere extends Component {
       if (timeout) clearTimeout(timeout);
       anime.set(el, { scale: 1 });
       var ratio = el.parentNode.offsetWidth / el.scrollWidth;
-      timeout = setTimeout(anime.set(el, { scale: ratio }), 10);
+      var ratio2 = el.parentNode.offsetHeight / el.scrollHeight;
+      let scale = Math.min(ratio, ratio2)
+      timeout = setTimeout(anime.set(el, { scale }), 10);
     }
     resize();
     window.addEventListener('resize', resize);
