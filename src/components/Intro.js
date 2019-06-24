@@ -7,7 +7,7 @@ import { StandardComponentStyles } from './CoreStyles';
 const Intro = (props) =>
   <IntroContainer id="top">
     <h2>Welcome!</h2>
-    <h3>I'm Kin Chan</h3>
+    <h3>I'm Kin's Portfolio</h3>
     <Sphere />
   </IntroContainer>
 

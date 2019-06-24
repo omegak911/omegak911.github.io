@@ -27,8 +27,9 @@ class Nav extends Component {
         </DrawerTab>
         <NavDrawer onMouseLeave={this.toggleDrawer} style={{ display: showDrawer ? 'flex' : 'none'}}>
           <a href="#top">Top</a>
-          <a href="#tech">TechStack</a>
+          <a href="#about">About Him</a>
           <a href="#applications">Applications</a>
+          <a href="#tech">TechStack</a>
           {/* <a href="#blog">Blog</a> */}
           <a href="#contact">Contact</a>
         </NavDrawer>
@@ -71,6 +72,7 @@ const NavContainer = styled.div`
   justify-content: center;
   height: 50px;
   position: fixed;
+  min-width: 500px
   width: 100%;
   z-index: 99999;
 `;
