@@ -74,20 +74,24 @@ class TechStack extends Component {
     return (
       <DragDropContext onDragEnd={this.onDragEnd}>
         <TechContainer id="tech">
-          <TechDraggable techDraggables={techDraggables} />
+          {this.props.display &&
+            <div style={{ display: 'flex' }}>
+              <TechDraggable techDraggables={techDraggables} />
 
-          <TechDroppableWrapper>
-            
-            <div>
-              <h2>TechStack</h2>
-              <div>Here lies various techs I've used over the past year.  See if you can match all the text to the right logo!  Drag and drop the text to its respective logo.</div>
+              <TechDroppableWrapper>
+                
+                <div>
+                  <h2>TechStack</h2>
+                  <div>Here lies various techs I've used over the past year.  See if you can match all the text to the right logo!  Drag and drop the text to its respective logo.</div>
+                </div>
+
+                <div><button onClick={this.solve}>Solve</button><button onClick={this.unSolve}>UnSolve</button></div>
+
+                <TechDroppableTop techDroppables={techDroppables} />
+              </TechDroppableWrapper>
             </div>
-
-            <div><button onClick={this.solve}>Solve</button><button onClick={this.unSolve}>UnSolve</button></div>
-
-            <TechDroppableTop techDroppables={techDroppables} />
-          </TechDroppableWrapper>
-        </TechContainer>
+          }
+          </TechContainer>
       </DragDropContext>
     )
   }

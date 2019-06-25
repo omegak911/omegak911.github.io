@@ -42,10 +42,10 @@ class App extends Component {
         <Intro />
         <AboutHim />
         <OnVisible >
-          {showApp && <Applications />}
+          <Applications display={showApp}/>
         </OnVisible>
         <OnVisible >
-          {showTech && <TechStack />}
+          <TechStack display={showTech}/>
         </OnVisible>
         <Contact />
       </div>

@@ -45,7 +45,7 @@ class Applications extends Component {
 
     return (
       <AppContainer id="applications">
-        <MidAppContainer>
+        {this.props.display && <MidAppContainer>
           <div>
             <h2>&nbsp; MVP Applications</h2>
             <MVPApplications onWheel={this.detectWheel}>
@@ -62,7 +62,7 @@ class Applications extends Component {
           </MVPApplications>
           {detail && <ApplicationDetail detail={detail}/>}
          </div>
-       </MidAppContainer>
+       </MidAppContainer>}
      </AppContainer>
     )
   }
