@@ -2,8 +2,10 @@
   "name": "personal_portfolio",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://omegak911.github.io",
   "dependencies": {
     "animejs": "^3.0.1",
+    "gh-pages": "^2.0.1",
     "react": "^16.7.0",
     "react-beautiful-dnd": "^10.1.0",
     "react-coverflow": "^0.2.20",
@@ -17,7 +19,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -b master -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
