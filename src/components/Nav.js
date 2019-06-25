@@ -1,44 +1,23 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
-class Nav extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      showDrawer: false,
-      hoveredTimes: 0
-    }
-  }
-
-  toggleDrawer = () => {
-    this.setState({ showDrawer: !this.state.showDrawer, hoveredTimes: this.state.hoveredTimes + 1 }, () => {
-      if (this.state.hoveredTimes === 1) {
-        this.props.showRestOfPortfolio();
-      }
-    });
-  }
-
-  render() {
-    let { showDrawer } = this.state;
-    return (
-      <NavContainer>
-        <DrawerTab onMouseEnter={this.toggleDrawer} style={{ display: showDrawer ? 'none' : 'flex'}}>
-          Nav
-        </DrawerTab>
-        <NavDrawer onMouseLeave={this.toggleDrawer} style={{ display: showDrawer ? 'flex' : 'none'}}>
-          <a href="#top">Top</a>
-          <a href="#tech">TechStack</a>
-          <a href="#applications">Applications</a>
-          {/* <a href="#blog">Blog</a> */}
-          <a href="#contact">Contact</a>
-        </NavDrawer>
-      </NavContainer>
-    )
-  }
-}
+const Nav = (props) =>
+  <NavContainer>
+    <NavDrawer>
+      <a href="#top">Top</a>
+      <a href="#about">About Him</a>
+      <a href="#applications">Applications</a>
+      <a href="#tech">TechStack</a>
+      {/* <a href="#blog">Blog</a> */}
+      <a href="#contact">Contact</a>
+    </NavDrawer>
+    <DrawerTab>
+      Nav
+    </DrawerTab>
+  </NavContainer>
 
 const DrawerTab = styled.div`
-  background-color: black;
+  background: linear-gradient(to bottom, rgba(76,76,76,1) 0%, rgba(89,89,89,1) 10%, rgba(0,0,0,1) 14%, rgba(17,17,17,1) 75%, rgba(17,17,17,1) 98%, rgba(19,19,19,1) 100%);
   border-radius: 0px 0px 5px 5px;
   box-shadow: 1px 2px lightgrey;
   height: 20px;
@@ -50,10 +29,11 @@ const DrawerTab = styled.div`
 
 const NavDrawer = styled.div`
   justify-content: space-evenly;
+  display: flex;
   align-items: center;
   width: 100%;
   background: linear-gradient(to bottom, rgba(19,19,19,1) 0%,rgba(17,17,17,1) 14%,rgba(17,17,17,1) 14%,rgba(0,0,0,1) 75%,rgba(89,89,89,1) 98%,rgba(76,76,76,1) 100%);
-  height: 100%;
+  height: 35px;
   & a {
     text-decoration: none;
     font-size: 1.5em;
@@ -67,12 +47,20 @@ const NavDrawer = styled.div`
 `;
 
 const NavContainer = styled.div`
+  align-items: center;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   height: 50px;
   position: fixed;
+  min-width: 600px;
+  transition: 1s;
+  top: -30px;
   width: 100%;
   z-index: 99999;
+  &:hover {
+    top: 0px;
+  }
 `;
 
 export default Nav;
