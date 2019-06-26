@@ -15,33 +15,38 @@ class Applications extends Component {
       detail: null,
       active: 3
     }
+
+    this.handleDirection = this.debounce(this.handleDirection);
   }
 
   componentDidMount() {
     this.setState({ detail: applications[this.state.active] });
   }
 
+  debounce = (func) => {
+    let wait = false;
+    return (e) => {
+      if (!wait) {
+        wait = true;
+        setTimeout(() => {
+          wait = false;
+        }, 200);
+        func(e);
+      }
+    }
+  }
+
   updateDetail = (detail) => {
     this.setState({ detail });
   }
 
-  detectWheel = (e) => {
-    let { applications, active } = this.state;
-    
-    if (e.deltaY > 0) {
-      active = active === 0 ? active : active - 1;
-    } else {
-      active = active < applications.length - 1 ? active + 1 : active;
-    }
-
-    this.setState({ active, detail: applications[active] });
-  }
-
   handleDirection = (val) => {
     let { active, applications } = this.state;
-    if (0 < active && val === -1 || 
-      active < applications.length - 1 && val === 1) {
-      this.setState({ active: active + val });
+    let index = val.deltaY ? (val.deltaY > 0 ? 1 : -1) : val;
+
+    if ((0 < active && index === -1) || (active < applications.length - 1 && index === 1)) {
+      index += active;
+      this.setState({ active: index, detail: applications[index] });
     }
   }
 
@@ -56,7 +61,7 @@ class Applications extends Component {
         {this.props.display && 
         <MidAppContainer>
             <h2>&nbsp; MVP Applications</h2>
-            <MVPApplications onWheel={this.detectWheel}>
+            <MVPApplications onWheel={this.handleDirection}>
               <Coverflow
                 height={400}
                 width={1500}
