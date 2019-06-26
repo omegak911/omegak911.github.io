@@ -36,10 +36,6 @@ class Applications extends Component {
     }
   }
 
-  updateDetail = (detail) => {
-    this.setState({ detail });
-  }
-
   handleDirection = (val) => {
     let { active, applications } = this.state;
     let index = val.deltaY ? (val.deltaY > 0 ? 1 : -1) : val;
@@ -53,7 +49,7 @@ class Applications extends Component {
   render() {
     const { active, applications, detail } = this.state;
     const appImages = applications.map((app, i) => (
-      <Application key={i} app={app} updateDetail={this.updateDetail}/>
+      <Application key={i} app={app} />
     ));
 
     return (
