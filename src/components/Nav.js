@@ -54,7 +54,7 @@ const NavContainer = styled.div`
   height: 50px;
   position: fixed;
   min-width: 600px;
-  transition: 1s;
+  transition: 0.5s;
   top: -30px;
   width: 100%;
   z-index: 99999;
