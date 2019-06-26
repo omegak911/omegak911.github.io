@@ -33,35 +33,62 @@ class Applications extends Component {
     } else {
       active = active < applications.length - 1 ? active + 1 : active;
     }
+
     this.setState({ active, detail: applications[active] });
   }
 
-  render() {
-    const { applications, detail } = this.state;
+  handleDirection = (val) => {
+    let { active, applications } = this.state;
+    if (0 < active && val === -1 || 
+      active < applications.length - 1 && val === 1) {
+      this.setState({ active: active + val });
+    }
+  }
 
+  render() {
+    const { active, applications, detail } = this.state;
     const appImages = applications.map((app, i) => (
       <Application key={i} app={app} updateDetail={this.updateDetail}/>
     ));
 
     return (
       <AppContainer id="applications">
-        {this.props.display && <MidAppContainer>
-          <div>
+        {this.props.display && 
+        <MidAppContainer>
             <h2>&nbsp; MVP Applications</h2>
             <MVPApplications onWheel={this.detectWheel}>
               <Coverflow
                 height={400}
                 width={1500}
                 displayQuantityOfSide={2}
-                enableScroll={true}
+                enableScroll={false}
                 clickable={false}
-                active={0}
+                active={active}
               >
                 {appImages}
               </Coverflow>
           </MVPApplications>
+
+          <ArrowContainer>
+            <StyledArrow 
+              direction="leftArrow" 
+              onClick={() => this.handleDirection(-1)}
+            >
+              &#8592;
+            </StyledArrow>
+            <StyledArrow 
+              direction="rightArrow" 
+              onClick={() => this.handleDirection(1)}
+              style={{
+                marginRight: '0px',
+                marginLeft: 'auto'
+              }}
+            >
+              &#8594;
+            </StyledArrow>
+          </ArrowContainer>
+
           {detail && <ApplicationDetail detail={detail}/>}
-         </div>
        </MidAppContainer>}
      </AppContainer>
     )
@@ -78,7 +105,8 @@ const MidAppContainer = styled.div`
   box-shadow: 10px 10px 10px rgb(30, 30, 30);
   display: flex;
   flex-direction: column;
-  justify-items: center;
+  justify-content: center;
+  align-items: center;
   width: 95%;
 `;
 
@@ -95,6 +123,20 @@ const MVPApplications = styled.div`
   width: 80%;
   justify-content: center;
   align-items: center;
+`;
+
+const ArrowContainer = styled.div`
+  display: flex;
+  width: 80%;
+`;
+
+const StyledArrow = styled.div`
+  font-size: 2em;
+  &:hover{ 
+    font-weight: bold;
+    text-shadow: 2px 2px 2px grey;
+    cursor: pointer;
+  }
 `;
 
 export default Applications;
