@@ -1,13 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
-import { StandardComponentStyles } from './CoreStyles';
 
 import photo from '../assets/photo.jpg';
 
 const AboutHim = (props) =>
   <AboutContainer id="about">
     <Inner>
-      <p>My human, Kin Chan, is a Full Stack Software Engineer with a passion for the front end.  He creates whatever is new and challenging because it translates to fun and exciting.</p>
+      <p>My human, Kin Chan, is a Full Stack Software Engineer with a passion for front-end development.  He creates whatever is new and challenging, because it translates to fun and exciting.</p>
 
       <p>He has built multiple applications, each with increasing levels of complexity and/or new technologies.  Currently, he's working on an MVP trip planning application that utilizes Google Map/Directions/Places API and socket.io. Check them out in the next section!</p>
 
