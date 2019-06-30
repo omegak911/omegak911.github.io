@@ -4,12 +4,34 @@ import styled from 'styled-components';
 const Nav = (props) =>
   <NavContainer>
     <NavDrawer>
-      <a href="#top">Top</a>
-      <a href="#about">About Him</a>
-      <a href="#applications">Applications</a>
-      <a href="#tech">TechStack</a>
+      <NavTag>
+        <NavTagTop />
+        <a href="#top">Top</a>
+        <div />
+      </NavTag>
+      <NavTag>
+        <NavTagTop />
+          <a href="#about">About Him</a>
+        <div />
+      </NavTag>
+      <NavTag>
+        <NavTagTop />
+        <a href="#applications">Applications</a>
+        <div />
+      </NavTag>
+      <NavTag>
+        <NavTagTop />
+        <a href="#tech">TechStack</a>
+        <div />
+      </NavTag>
+      <NavTag>
+        <NavTagTop />
+        <a href="#contact">Contact</a>
+        <div />
+      </NavTag>
+
       {/* <a href="#blog">Blog</a> */}
-      <a href="#contact">Contact</a>
+      
     </NavDrawer>
     <DrawerTab>
       Nav
@@ -33,7 +55,7 @@ const NavDrawer = styled.div`
   align-items: center;
   width: 100%;
   background: linear-gradient(to bottom, rgba(19,19,19,1) 0%,rgba(17,17,17,1) 14%,rgba(17,17,17,1) 14%,rgba(0,0,0,1) 75%,rgba(89,89,89,1) 98%,rgba(76,76,76,1) 100%);
-  height: 35px;
+  height: 50px;
   & a {
     text-decoration: none;
     font-size: 1.5em;
@@ -51,16 +73,40 @@ const NavContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 50px;
+  height: 70px;
   position: fixed;
   min-width: 600px;
   transition: 0.5s;
-  top: -30px;
+  top: -50px;
   width: 100%;
   z-index: 99999;
   &:hover {
     top: 0px;
   }
+`;
+
+const NavTag = styled.div`
+  position: relative;
+  & div {
+    position: absolute;
+    height: 1px;
+    width: 0px;
+    transition: all 500ms ease-in-out;
+    background-color: white;
+  }
+  &:hover {
+    & div {
+      width: 100%;
+    }
+    & a {
+      font-size: 1.3em;
+      padding: 0.2em;
+    }
+  }
+`;
+
+const NavTagTop = styled.div`
+  right: 0px;
 `;
 
 export default Nav;
