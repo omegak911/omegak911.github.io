@@ -87,6 +87,8 @@ const NavContainer = styled.div`
 
 const NavTag = styled.div`
   position: relative;
+  text-align: center;
+  width: 125px;
   & div {
     position: absolute;
     height: 1px;
@@ -101,6 +103,11 @@ const NavTag = styled.div`
     & a {
       font-size: 1.3em;
       padding: 0.2em;
+    }
+  }
+  > a {
+    &:hover {
+      background-color: transparent;
     }
   }
 `;
