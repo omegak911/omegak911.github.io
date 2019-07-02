@@ -7,6 +7,14 @@ const applications = [
     techStack: 'AWS EC2/S3/RDS | Express | Jest | Microservices | PostgreSQL | React | react-beautiful-dnd | styled-components',
   },
   {
+    code: 'https://github.com/omegak911/omegak911.github.io/tree/portfolio',
+    description: 'Personal Portfolio',
+    image: 'https://media.licdn.com/media-proxy/ext?w=800&h=800&f=n&hash=oT1Tn9SU%2F1XOsE1YHK14mAjpN6w%3D&ora=1%2CaFBCTXdkRmpGL2lvQUFBPQ%2CxAVta5g-0R6jnhodx1Ey9KGTqAGj6E5DQJHUA3L0CHH05IbfPWi8eZHbcLCkrEARe39XjQA2e7u1EWXoEY64Ko_veY902JbnLMb5agYUbhl4lWdI',
+    title: 'Portfolio',
+    url: 'https://kinchan.dev',
+    techStack: 'CSS | HTML | React | react-beautiful-dnd | react-coverflow | animejs',
+  },
+  {
     code: 'https://github.com/Notorious-NPM/Rhyme-Doctor-Mobile',
     description: 'Rhyme visualization tool',
     image: 'https://github.com/Notorious-NPM/Rhyme-Doctor/raw/master/about/home.png',
@@ -30,18 +38,6 @@ const applications = [
     image: 'https://media.licdn.com/media-proxy/ext?w=800&h=800&f=n&hash=qx92U8a%2B1Jf0HHV0LzE%2ByWOdCD8%3D&ora=1%2CaFBCTXdkRmpGL2lvQUFBPQ%2CxAVta5g-0R6jnhodx1Ey9KGTqAGj6E5DQJHUA3L0CHH05IbfPWi4KpaMfrqjo0BALnoGjQBheOi1ETfhRI69LILrKdly2MPjJsL5agYUbhl4lWdI',
     title: 'TrackYoScore',
     techStack: 'Cloudinary API | Express | Passport | PostgreSQL | React | Redux',
-  },
-  {
-    code: 'https://github.com/omegak911/omegak911.github.io/tree/portfolio',
-    description: 'Personal Portfolio v2',
-    image: 'https://media.licdn.com/media-proxy/ext?w=800&h=800&f=n&hash=k9tS0%2FpGWit6YI7LG%2FsrdzsNO08%3D&ora=1%2CaFBCTXdkRmpGL2lvQUFBPQ%2CxAVta5g-0R6jnhodx1Ey9KGTqAGj6E5DQJHUA3L0CHH05IbfPWjrfs_eKLel8UAVLnhXjQAzfO61STXhE460eIjre9V2iJHjd5P5agYUbhl4lWdI',
-    title: 'Portfolio',
-    url: 'https://omegak911.github.io/',
-    special: [
-      ['Heroku Website', 'https://personalportfolio-v2.herokuapp.com/'],
-      ['Next.js Codebase', 'https://github.com/omegak911/portfolio-v2/tree/deployment']
-    ],
-    techStack: 'CSS | HTML | React',
   },
   {
     code: 'https://github.com/omegak911/Gotta_Vue_em_All/tree/deployment',
